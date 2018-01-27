@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/fuzzy-happiness/NUSNavigatorBot#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "node-telegram-bot-api": "^0.30.0"
   }
 }
