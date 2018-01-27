@@ -220,8 +220,8 @@
   {
     "name": "Raffles Hall",
     "alias": "RHL",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "longitude": 1.300916, 
+    "latitude": 103.772769,
     "buses": ["B2", "C"]
   },
 
@@ -234,35 +234,27 @@
   },
 
   {
-    "name": "Kent Vale",
-    "alias": "KVL",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
-    "buses": ["C"]
-  },
-
-  {
     "name": "Museum",
     "alias": "MSM",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
-    "buses": ["C", "A2", "D1", "D2"]
+    "longitude": 1.301005, 
+    "latitude": 103.773703,
+    "buses": ["C", "A2", "D1", "D2", "151", "151e"]
   },
 
   {
     "name": "University Health Centre",
     "alias": "UHC",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
-    "buses": ["C", "D2", "A2"]
+    "longitude": 1.298885, 
+    "latitude": 103.776141,
+    "buses": ["C", "D2", "A2", "95"]
   },
 
 
   {
     "name": "Car Park 11 (BIZ)",
     "alias": "C11",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "longitude": 1.294693, 
+    "latitude": 103.774810,
     "buses": ["D2"]
   }
 
