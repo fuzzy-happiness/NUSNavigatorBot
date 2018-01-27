@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const dotenv = require('dotenv');
-const Session = require('lib/session');
+const Session = require('./lib/session');
 
 dotenv.load();
 
