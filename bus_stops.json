@@ -2,80 +2,80 @@
   {
     "name": "PGP",
     "alias": "PGP",
-    "longitude": 1.290754,
-    "latitude": 103.780339,
+    "latitude": 1.290754,
+    "longitude": 103.780339,
     "buses": ["A1", "A2", "D2"]
   },
 
   {
     "name": "KR MRT Station",
     "alias": "KRM",
-    "longitude": 1.292509,
-    "latitude": 103.784856,
+    "latitude": 1.292509,
+    "longitude": 103.784856,
     "buses": ["A1","C", "D2"]
   },
 
   {
     "name": "LT29",
     "alias": "L29",
-    "longitude": 1.297115,
-    "latitude": 103.781354,
+    "latitude": 1.297115,
+    "longitude": 103.781354,
     "buses": ["A1", "C", "D2"]
   },
 
   {
     "name": "University Hall",
     "alias": "UHL",
-    "longitude": 1.297408, 
-    "latitude": 103.777922,
+    "latitude": 1.297408,
+    "longitude": 103.777922,
     "buses": ["A1", "C", "D2"]
   },
 
   {
     "name": "Opp University Health Centre",
     "alias": "OHC",
-    "longitude": 1.298786, 
-    "latitude": 103.775611,
+    "latitude": 1.298786,
+    "longitude": 103.775611,
     "buses": ["A1", "C", "D2", "95"]
   },
 
   {
     "name": "Yusof Ishak House",
     "alias": "YIH",
-    "longitude": 1.298862, 
-    "latitude": 103.774385,
+    "latitude": 1.298862,
+    "longitude": 103.774385,
     "buses": ["A1", "B1", "D1", "95", "151", "151e"]
   },
 
   {
     "name": "Central Library",
     "alias": "CLB",
-    "longitude": 1.296545, 
-    "latitude": 103.772538,
+    "latitude": 1.296545,
+    "longitude": 103.772538,
     "buses": ["A1", "B1", "D1", "95", "151", "151e"]
   },
 
   {
     "name": "LT 13",
     "alias": "L13",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A1", "B1", "D1"]
   },
 
   {
     "name": "AS 7",
     "alias": "AS7",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A1", "B1", "D1"]
   },
 
   {
     "name": "COM 2",
     "alias": "CM2",
-    "longitude": 1.294233, 
-    "latitude": 103.773817,
+    "latitude": 1.294233,
+    "longitude": 103.773817,
     "buses": ["A1", "D1"]
   },
 
@@ -83,24 +83,24 @@
   {
     "name": "BIZ 2",
     "alias": "BZ2",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A1", "B1", "D"]
   },
 
   {
     "name": "Opp. House 12",
     "alias": "O12",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A1"]
   },
 
   {
     "name": "House 7",
     "alias": "H07",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A1"]
   },
 
@@ -108,16 +108,16 @@
   {
     "name": "House 15",
     "alias": "H15",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A2"]
   },
 
   {
     "name": "House 12",
     "alias": "H12",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A2"]
   },
 
@@ -125,16 +125,16 @@
   {
     "name": "Opp. Hon Sui Sen Memorial Library",
     "alias": "OML",
-    "longitude": 1.293302, 
-    "latitude": 103.775222,
+    "latitude": 1.293302,
+    "longitude": 103.775222,
     "buses": ["A2", "D1"]
   },
 
   {
     "name": "Opp. NUSS",
     "alias": "OSS",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A2", "B2", "D1"]
   },
 
@@ -142,110 +142,110 @@
   {
     "name": "Ventus (Opp LT13)",
     "alias": "VEN",
-    "longitude": 1.295325, 
-    "latitude": 103.770326,
+    "latitude": 1.295325,
+    "longitude": 103.770326,
     "buses": ["A2", "B2", "D1"]
   },
   {
     "name": "Computer Centre",
     "alias": "OML",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A2", "B1", "B2", "C", "D1"]
   },
   {
     "name": "Opp. Yusof Ishak House",
     "alias": "OYH",
-    "longitude": 1.298977, 
-    "latitude": 103.774216,
+    "latitude": 1.298977,
+    "longitude": 103.774216,
     "buses": ["A2", "B1", "B2", "C", "D1", "95", "151", "151e"]
   },
 
   {
     "name": "S17",
     "alias": "S17",
-    "longitude": 1.297513,
-    "latitude": 103.781303,
+    "latitude": 1.297513,
+    "longitude": 103.781303,
     "buses": ["A2", "C", "95"]
   },
 
   {
     "name": "Opp. University Hall",
     "alias": "OUH",
-    "longitude": 1.297497, 
-    "latitude": 103.778145,
+    "latitude": 1.297497,
+    "longitude": 103.778145,
     "buses": ["A2", "C", "95"]
   },
 
   {
     "name": "Opp. KR MRT Station",
     "alias": "OKR",
-    "longitude": 1.292375,
-    "latitude": 103.784628,
+    "latitude": 1.292375,
+    "longitude": 103.784628,
     "buses": ["A2"]
   },
 
   {
     "name": "PGP Residences",
     "alias": "PGR",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["A2", "D2"]
   },
 
   {
     "name": "Kent Ridge Bus Terminal",
     "alias": "KRB",
-    "longitude": 1.294237, 
-    "latitude": 103.769888,
+    "latitude": 1.294237,
+    "longitude": 103.769888,
     "buses": ["B1", "B2", "C"]
   },
 
   {
     "name": "University Town",
     "alias": "UTN",
-    "longitude": 1.303522, 
-    "latitude": 103.774462,
+    "latitude": 1.303522,
+    "longitude": 103.774462,
     "buses": ["B1", "B2", "D1"]
   },
 
   {
     "name": "Opp. HSSML",
     "alias": "OHS",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["B2"]
   },
 
   {
     "name": "Raffles Hall",
     "alias": "RHL",
-    "longitude": 1.300916, 
-    "latitude": 103.772769,
+    "latitude": 1.300916,
+    "longitude": 103.772769,
     "buses": ["B2", "C"]
   },
 
   {
     "name": "EA",
     "alias": "EA",
-    "longitude": 1.300994,
-    "latitude": 103.773808,
+    "latitude": 1.300994,
+    "longitude": 103.773808,
     "buses": ["C"]
   },
 
   {
     "name": "Museum",
     "alias": "MSM",
-    "longitude": 1.301005, 
-    "latitude": 103.773703,
+    "latitude": 1.301005,
+    "longitude": 103.773703,
     "buses": ["C", "A2", "D1", "D2", "151", "151e"]
   },
 
   {
     "name": "University Health Centre",
     "alias": "UHC",
-    "longitude": 1.298885, 
-    "latitude": 103.776141,
+    "latitude": 1.298885,
+    "longitude": 103.776141,
     "buses": ["C", "D2", "A2", "95"]
   },
 
@@ -253,8 +253,8 @@
   {
     "name": "Car Park 11 (BIZ)",
     "alias": "C11",
-    "longitude": 1.294693, 
-    "latitude": 103.774810,
+    "latitude": 1.294693,
+    "longitude": 103.774810,
     "buses": ["D2"]
   }
 
