@@ -1,0 +1,19 @@
+{
+  "bus_stops":[
+    {
+      "name": "University Town",
+      "alias": "UTN",
+      "longitude": 105.983989384,
+      "latitude": 1.002938479823,
+      "buses": ["B1", "D2"]
+    },
+    {
+      "name": "University Town",
+      "alias": "UTN",
+      "longitude": 105.983989384,
+      "latitude": 1.002938479823,
+      "buses": ["B1", "D2"]
+    },
+  ]
+
+}
