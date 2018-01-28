@@ -12,6 +12,8 @@ const bot = new TelegramBot(token, { polling: true });
 
 const session = new Session();
 
+const bus_stops = require('./bus_stops.json');
+
 function findNearest(loc, list) {
   let min = { distance: Infinity };
   for(var i = 0; i < list.length; i++) {
@@ -24,7 +26,6 @@ function findNearest(loc, list) {
 }
 
 function processFromLocation(msg) {
-  const bus_stops = require('./bus_stops.json');
   const nearest = findNearest(msg.location, bus_stops);
   bot.sendMessage(msg.chat.id, `Nearest bus stop is ${bus_stops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
   const opts = {
@@ -52,25 +53,51 @@ function rowify(list, columnWidth) {
   return result;
 }
 
+function findTransit(from, to) {
+  function helper(list) {
+    const nearest = list[findNearest(from, list).index];
+    console.log(list.length);
+    const from_common = nearest.buses.filter(bus => from.buses.indexOf(bus) !== -1);
+    const to_common = nearest.buses.filter(bus => to.buses.indexOf(bus) !== -1);
+    const removed = list.filter(obj => obj.name !== nearest.name);
+    if (from_common.length > 0 && to_common.length > 0) {
+      return {from_common: from_common, to_common: to_common, transit: nearest};
+    } else {
+      return helper(removed);
+    }
+  }
+  console.log(from);
+  console.log(to);
+  return helper(bus_stops.filter(obj => obj.name !== from.name && obj.name !== to.name));
+}
+
 function route(msg, from, to) {
   const opts = {
     reply_markup: JSON.stringify({
       remove_keyboard: true
     })
   };
-  let directions = `You are going from ${from.name} to ${to.name}`;
+  const common = from.buses.filter(bus => to.buses.indexOf(bus) !== -1);
+  let directions = '';
+  if (common.length > 0) {
+    directions = `You can take ${common.length === 1 ? 'bus' : 'buses'} ${common.join(', ')}`;
+  } else {
+    const transit = findTransit(from, to);
+    directions = `You can take buses ${transit.from_common.join(', ')} from ${from.name} and transit at ${transit.transit.name}, then take buses ${transit.to_common.join(', ')} to ${to.name}`;
+  }
   bot.sendMessage(msg.chat.id, directions, opts);
 }
 
 function processToLocation(msg) {
   const from = session.get(msg.chat.id, 'from');
-  const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'to') === 1) {
     const filtered = bus_stops.filter(obj => obj.group === msg.text);
     if (filtered.length === 0) {
       bot.sendMessage(msg.chat.id, 'Please use the selections below.');
     } else if (filtered.length === 1) {
       route(msg, from, filtered[0]);
+      session.del(msg.chat.id, 'from');
+      session.del(msg.chat.id, 'to');
     } else {
       const opts = {
         reply_markup: JSON.stringify({
@@ -85,6 +112,8 @@ function processToLocation(msg) {
     const filtered = bus_stops.filter(obj => obj.name === msg.text);
     if (filtered.length === 1) {
       route(msg, from, filtered[0]);
+      session.del(msg.chat.id, 'from');
+      session.del(msg.chat.id, 'to');
     } else {
       bot.sendMessage(msg.chat.id, `Please use the selections below.`);
     }
@@ -116,6 +145,7 @@ bot.on('message', (msg) => {
   } catch (e) {
     console.log(e);
   }
+
 
 });
 
