@@ -4,7 +4,8 @@
     "alias": "PGP",
     "latitude": 1.290754,
     "longitude": 103.780339,
-    "buses": ["A1", "A2", "D2"]
+    "buses": ["A1", "A2", "D2"],
+    "group": "PGPR"
   },
 
   {
@@ -12,7 +13,8 @@
     "alias": "KRM",
     "latitude": 1.292509,
     "longitude": 103.784856,
-    "buses": ["A1","C", "D2"]
+    "buses": ["A1","C", "D2"],
+    "group": "Kent Ridge MRT"
   },
 
   {
@@ -20,7 +22,8 @@
     "alias": "L29",
     "latitude": 1.297115,
     "longitude": 103.781354,
-    "buses": ["A1", "C", "D2"]
+    "buses": ["A1", "C", "D2"],
+    "group": "FoS"
   },
 
   {
@@ -28,7 +31,8 @@
     "alias": "UHL",
     "latitude": 1.297408,
     "longitude": 103.777922,
-    "buses": ["A1", "C", "D2"]
+    "buses": ["A1", "C", "D2"],
+    "group": "FoS"
   },
 
   {
@@ -36,7 +40,8 @@
     "alias": "OHC",
     "latitude": 1.298786,
     "longitude": 103.775611,
-    "buses": ["A1", "C", "D2", "95"]
+    "buses": ["A1", "C", "D2", "95"],
+    "group": "FoS"
   },
 
   {
@@ -44,7 +49,8 @@
     "alias": "YIH",
     "latitude": 1.298862,
     "longitude": 103.774385,
-    "buses": ["A1", "B1", "D1", "95", "151", "151e"]
+    "buses": ["A1", "B1", "D1", "95", "151", "151e"],
+    "group": "YIH"
   },
 
   {
@@ -52,7 +58,8 @@
     "alias": "CLB",
     "latitude": 1.296545,
     "longitude": 103.772538,
-    "buses": ["A1", "B1", "D1", "95", "151", "151e"]
+    "buses": ["A1", "B1", "D1", "95", "151", "151e"],
+    "group": "CLB/COMCEN"
   },
 
   {
@@ -60,7 +67,8 @@
     "alias": "L13",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1", "B1", "D1"]
+    "buses": ["A1", "B1", "D1"],
+    "group": "FASS"
   },
 
   {
@@ -68,7 +76,8 @@
     "alias": "AS7",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1", "B1", "D1"]
+    "buses": ["A1", "B1", "D1"],
+    "group": "FASS"
   },
 
   {
@@ -76,7 +85,8 @@
     "alias": "CM2",
     "latitude": 1.294233,
     "longitude": 103.773817,
-    "buses": ["A1", "D1"]
+    "buses": ["A1", "D1"],
+    "group": "COM2"
   },
 
 
@@ -85,7 +95,8 @@
     "alias": "BZ2",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1", "B1", "D"]
+    "buses": ["A1", "B1", "D"],
+    "group": "BIZ"
   },
 
   {
@@ -93,7 +104,8 @@
     "alias": "O12",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1"]
+    "buses": ["A1"],
+    "group": "PGPR"
   },
 
   {
@@ -101,7 +113,8 @@
     "alias": "H07",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1"]
+    "buses": ["A1"],
+    "group": "PGPR"
   },
 
 
@@ -110,7 +123,8 @@
     "alias": "H15",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A2"]
+    "buses": ["A2"],
+    "group": "PGPR"
   },
 
   {
@@ -118,7 +132,8 @@
     "alias": "H12",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A2"]
+    "buses": ["A2"],
+    "group": "PGPR"
   },
 
 
@@ -127,7 +142,8 @@
     "alias": "OML",
     "latitude": 1.293302,
     "longitude": 103.775222,
-    "buses": ["A2", "D1"]
+    "buses": ["A2", "D1"],
+    "group": "BIZ"
   },
 
   {
@@ -135,7 +151,8 @@
     "alias": "OSS",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A2", "B2", "D1"]
+    "buses": ["A2", "B2", "D1"],
+    "group": "Misc"
   },
 
 
@@ -144,21 +161,24 @@
     "alias": "VEN",
     "latitude": 1.295325,
     "longitude": 103.770326,
-    "buses": ["A2", "B2", "D1"]
+    "buses": ["A2", "B2", "D1"],
+    "group": "FASS"
   },
   {
     "name": "Computer Centre",
     "alias": "OML",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A2", "B1", "B2", "C", "D1"]
+    "buses": ["A2", "B1", "B2", "C", "D1"],
+    "group": "CLB/COMCEN"
   },
   {
     "name": "Opp. Yusof Ishak House",
     "alias": "OYH",
     "latitude": 1.298977,
     "longitude": 103.774216,
-    "buses": ["A2", "B1", "B2", "C", "D1", "95", "151", "151e"]
+    "buses": ["A2", "B1", "B2", "C", "D1", "95", "151", "151e"],
+    "group": "YIH"
   },
 
   {
@@ -166,7 +186,8 @@
     "alias": "S17",
     "latitude": 1.297513,
     "longitude": 103.781303,
-    "buses": ["A2", "C", "95"]
+    "buses": ["A2", "C", "95"],
+    "group": "FoS"
   },
 
   {
@@ -174,7 +195,8 @@
     "alias": "OUH",
     "latitude": 1.297497,
     "longitude": 103.778145,
-    "buses": ["A2", "C", "95"]
+    "buses": ["A2", "C", "95"],
+    "group": "FoS"
   },
 
   {
@@ -182,7 +204,8 @@
     "alias": "OKR",
     "latitude": 1.292375,
     "longitude": 103.784628,
-    "buses": ["A2"]
+    "buses": ["A2"],
+    "group": "Kent Ridge MRT"
   },
 
   {
@@ -190,7 +213,8 @@
     "alias": "PGR",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A2", "D2"]
+    "buses": ["A2", "D2"],
+    "group": "PGPR"
   },
 
   {
@@ -198,7 +222,8 @@
     "alias": "KRB",
     "latitude": 1.294237,
     "longitude": 103.769888,
-    "buses": ["B1", "B2", "C"]
+    "buses": ["B1", "B2", "C"],
+    "group": "Misc"
   },
 
   {
@@ -206,7 +231,8 @@
     "alias": "UTN",
     "latitude": 1.303522,
     "longitude": 103.774462,
-    "buses": ["B1", "B2", "D1"]
+    "buses": ["B1", "B2", "D1"],
+    "group": "UTown"
   },
 
   {
@@ -214,7 +240,8 @@
     "alias": "OHS",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["B2"]
+    "buses": ["B2"],
+    "group": "BIZ"
   },
 
   {
@@ -222,7 +249,8 @@
     "alias": "RHL",
     "latitude": 1.300916,
     "longitude": 103.772769,
-    "buses": ["B2", "C"]
+    "buses": ["B2", "C"],
+    "group": "Halls"
   },
 
   {
@@ -230,7 +258,8 @@
     "alias": "EA",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["C"]
+    "buses": ["C"],
+    "group": "Misc"
   },
 
   {
@@ -238,7 +267,8 @@
     "alias": "MSM",
     "latitude": 1.301005,
     "longitude": 103.773703,
-    "buses": ["C", "A2", "D1", "D2", "151", "151e"]
+    "buses": ["C", "A2", "D1", "D2", "151", "151e"],
+    "group": "YSTCM"
   },
 
   {
@@ -246,7 +276,8 @@
     "alias": "UHC",
     "latitude": 1.298885,
     "longitude": 103.776141,
-    "buses": ["C", "D2", "A2", "95"]
+    "buses": ["C", "D2", "A2", "95"],
+    "group": "FoS"
   },
 
 
@@ -255,7 +286,8 @@
     "alias": "C11",
     "latitude": 1.294693,
     "longitude": 103.774810,
-    "buses": ["D2"]
+    "buses": ["D2"],
+    "group": "BIZ"
   }
 
 ]
