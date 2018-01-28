@@ -86,7 +86,7 @@
     "latitude": 1.294233,
     "longitude": 103.773817,
     "buses": ["A1", "D1"],
-    "group": "COM2"
+    "group": "SoC"
   },
 
 
@@ -95,7 +95,7 @@
     "alias": "BZ2",
     "latitude": 1.300994,
     "longitude": 103.773808,
-    "buses": ["A1", "B1", "D"],
+    "buses": ["A1", "B1", "D1", "D2"],
     "group": "BIZ"
   },
 
@@ -231,7 +231,7 @@
     "alias": "UTN",
     "latitude": 1.303522,
     "longitude": 103.774462,
-    "buses": ["B1", "B2", "D1"],
+    "buses": ["B1", "B2", "D1", "D2"],
     "group": "UTown"
   },
 

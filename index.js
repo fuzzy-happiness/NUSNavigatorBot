@@ -12,6 +12,8 @@ const bot = new TelegramBot(token, { polling: true });
 
 const session = new Session();
 
+const bus_stops = require('./bus_stops.json');
+
 function findNearest(loc, list) {
   let min = { distance: Infinity };
   for(var i = 0; i < list.length; i++) {
@@ -24,7 +26,6 @@ function findNearest(loc, list) {
 }
 
 function processFromLocation(msg) {
-  const bus_stops = require('./bus_stops.json');
   const nearest = findNearest(msg.location, bus_stops);
   bot.sendMessage(msg.chat.id, `Nearest bus stop is ${bus_stops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
   const opts = {
@@ -58,13 +59,18 @@ function route(msg, from, to) {
       remove_keyboard: true
     })
   };
-  let directions = `You are going from ${from.name} to ${to.name}`;
+  const common = from.buses.filter(bus => to.buses.indexOf(bus) !== -1);
+  let directions = '';
+  if (common.length > 0) {
+    directions = `You can take ${common.length === 1 ? 'bus' : 'buses'} ${common.join(',')}`;
+  } else {
+    directions = `You are going from ${from.name} to ${to.name}`;
+  }
   bot.sendMessage(msg.chat.id, directions, opts);
 }
 
 function processToLocation(msg) {
   const from = session.get(msg.chat.id, 'from');
-  const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'to') === 1) {
     const filtered = bus_stops.filter(obj => obj.group === msg.text);
     if (filtered.length === 0) {
