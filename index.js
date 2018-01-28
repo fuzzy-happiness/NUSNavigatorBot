@@ -77,7 +77,7 @@ function route(msg, from, to) {
   const common = from.buses.filter(bus => to.buses.indexOf(bus) !== -1);
   let directions = '';
   if (common.length > 0) {
-    directions = `You can take ${common.length === 1 ? 'bus' : 'buses'} ${common.join(', ')}`;
+    directions = `You can take ${common.length === 1 ? 'bus' : 'buses'} ${common.join(', ')} from ${from.name} to ${to.name}`;
   } else {
     const transit = findTransit(from, to);
     directions = `You can take buses ${transit.fromCommon.join(', ')} from ${from.name} and transit at ${transit.transit.name}, then take buses ${transit.toCommon.join(', ')} to ${to.name}`;
