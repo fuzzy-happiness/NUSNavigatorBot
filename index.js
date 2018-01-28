@@ -13,6 +13,15 @@ const bot = new TelegramBot(token, { polling: true });
 const session = new Session();
 
 const busStops = require('./bus_stops.json');
+const buildings = require('./buildings.json');
+
+function rowify(list, columnWidth) {
+  const result = [];
+  for (let i = 0; i < Math.ceil(list.length / columnWidth); i += 1) {
+    result.push(list.slice(i * columnWidth, (i + 1) * columnWidth));
+  }
+  return result;
+}
 
 function findNearest(loc, list) {
   let min = { distance: Infinity };
@@ -27,71 +36,36 @@ function findNearest(loc, list) {
 }
 
 
+function findBuilding(msg) {
+  const building = msg.text.toLowerCase().substring('/find'.length + 1);
 
-function findBuilding(msg){
-    const building = msg.text.toLowerCase().substring('/find'.length + 1);
+  const filtered = buildings.filter(obj => obj.name.toLowerCase().includes(building));
 
-    const buildings = require('./buildings.json');
-<<<<<<< 2530733f699069d2bf16c7cff92461aa42ae1e78
-    const bus_stops = require('./bus_stops.json');
-
-<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
-    bot.on('message', (msg) => {
-
-      return true;
-    } catch (e) {
-      console.log(e);
-    }
-=======
-=======
-
->>>>>>> find
-    const filtered = buildings.filter(obj => obj.name.toLowerCase().includes(building));
->>>>>>> builidings again
-
-    const opts = {
-        reply_markup: JSON.stringify({
-          keyboard: rowify(filtered.map(obj => obj.name), 3),
-          resize_keyboard: true
-        })
-      }
-    bot.sendMessage(msg.chat.id, `These are the offices you want`, opts);
-    session.set(msg.chat.id, 'find', 1);
+  const opts = {
+    reply_markup: JSON.stringify({
+      keyboard: rowify(filtered.map(obj => obj.name), 3),
+      resize_keyboard: true,
+    }),
+  };
+  bot.sendMessage(msg.chat.id, 'These are the offices you want', opts);
+  session.set(msg.chat.id, 'find', 1);
 }
 
 
-<<<<<<< 2530733f699069d2bf16c7cff92461aa42ae1e78
-<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
+function processFind(msg) {
+  const buildingName = msg.text;
 
-  };
-=======
-function processFind(msg, building){
-=======
-function processFind(msg){
-  const building_name = msg.text;
-  const buildings = require('./buildings.json');
-
-  var building = "";
+  let building = '';
   for (let i = 0; i < buildings.length; i += 1) {
-    if (buildings[i].name == building_name) {
+    if (buildings[i].name === buildingName) {
       building = buildings[i];
     }
   }
->>>>>>> find
-
-  const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'find') === 1) {
->>>>>>> builidings again
-
-
-    const nearest = findNearest(building,bus_stops);
+    const nearest = findNearest(building, busStops);
 
     bot.sendMessage(msg.chat.id, `Nearest bus stop is ${busStops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
-
-
   }
-
-
 }
 
 function processFromLocation(msg) {
@@ -114,14 +88,6 @@ function processFromLocation(msg) {
   return session.set(msg.chat.id, 'to', 1);
 }
 
-function rowify(list, columnWidth) {
-  const result = [];
-  for (let i = 0; i < Math.ceil(list.length / columnWidth); i += 1) {
-    result.push(list.slice(i * columnWidth, (i + 1) * columnWidth));
-  }
-  return result;
-}
-
 function findTransit(from, to) {
   function helper(list) {
     const nearest = list[findNearest(from, list).index];
@@ -139,7 +105,7 @@ function findTransit(from, to) {
 function route(msg, from, to) {
   const opts = {
     reply_markup: JSON.stringify({
-      keyboard: [ [{text: 'Send Location', request_location: true}] ],
+      keyboard: [[{ text: 'Send Location', request_location: true }]],
       resize_keyboard: true,
     }),
   };
@@ -154,9 +120,21 @@ function route(msg, from, to) {
   bot.sendMessage(msg.chat.id, directions, opts);
 }
 
+function processToSearch(msg) {
+  const to = msg.text.toLowerCase();
+  const result = busStops.filter(obj => obj.name.toLowerCase().includes(to)).map(obj => obj.name);
+  const opts = {
+    reply_markup: JSON.stringify({
+      keyboard: rowify(result, 3),
+      resize_keyboard: true,
+    }),
+  };
+  bot.sendMessage(msg.chat.id, 'Select which one is your destination', opts);
+  return true;
+}
+
 function processToLocation(msg) {
   const from = session.get(msg.chat.id, 'from');
-  const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'to') === 1) {
     const filtered = busStops.filter(obj => obj.group === msg.text);
     if (filtered.length === 0) {
@@ -178,25 +156,10 @@ function processToLocation(msg) {
     const filtered = busStops.filter(obj => obj.name === msg.text);
     if (filtered.length === 1) {
       route(msg, from, filtered[0]);
-    } else {
-      if (!processToSearch(msg)) {
-        bot.sendMessage(msg.chat.id, 'Please use the selections below.');
-      }
+    } else if (!processToSearch(msg)) {
+      bot.sendMessage(msg.chat.id, 'Please use the selections below.');
     }
   }
-}
-
-function processToSearch(msg) {
-  const to = msg.text.toLowerCase();
-  const result = busStops.filter(obj => obj.name.toLowerCase().includes(to)).map(obj => obj.name);
-  console.log(result);
-  const opts = {
-    reply_markup: JSON.stringify({
-      keyboard: rowify(result, 3),
-      resize_keyboard: true,
-    }),
-  };
-  bot.sendMessage(msg.chat.id, 'Select which one is your destination', opts);
   return true;
 }
 
@@ -213,30 +176,30 @@ bot.on('message', (msg) => {
       return processToLocation(msg);
     }
 
-    if (session.get(msg.chat.id, 'find') !== undefined) {
-      return processFind(msg);
-    }
-
-    var find = "/find";
-    if (msg.text.toLowerCase().indexOf(find) === 0) {
-        return findBuilding(msg);
-    }
-
-
     switch (command) {
-      case '/start':
+      case '/start': {
         const opts = {
           reply_markup: JSON.stringify({
-            keyboard: [ [{text: 'Send Location', request_location: true}] ],
+            keyboard: [[{ text: 'Send Location', request_location: true }]],
             resize_keyboard: true,
           }),
         };
         bot.sendMessage(msg.chat.id, 'Welcome! Please send me your location so I can guide you!', opts);
         break;
+      }
       case '/about':
         bot.sendMessage(msg.chat.id, 'This bot is created by @indocomsoft and @sciffany during Hack & Roll 2018!');
         break;
+      case '/find':
+        if (args.length === 0) {
+          return bot.sendMessage(msg.chat.id, 'Usage: /find <name of building>');
+        }
+        findBuilding(msg);
+        break;
       default:
+        if (session.get(msg.chat.id, 'find') !== undefined) {
+          return processFind(msg);
+        }
         bot.sendMessage(msg.chat.id, 'Command not recognised');
         break;
     }
