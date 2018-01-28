@@ -41,7 +41,7 @@ function processFromLocation(msg) {
       resize_keyboard: true,
     }),
   };
-  bot.sendMessage(msg.chat.id, 'Which faculty are you going to?', opts);
+  bot.sendMessage(msg.chat.id, 'Which faculty are you going to? (Or you can type the destination)', opts);
   session.set(msg.chat.id, 'from', busStops[nearest.index]);
   return session.set(msg.chat.id, 'to', 1);
 }
@@ -90,7 +90,8 @@ function processToLocation(msg) {
   if (session.get(msg.chat.id, 'to') === 1) {
     const filtered = busStops.filter(obj => obj.group === msg.text);
     if (filtered.length === 0) {
-      bot.sendMessage(msg.chat.id, 'Please use the selections below.');
+      session.set(msg.chat.id, 'to', 'search');
+      return processToLocation(msg);
     } else if (filtered.length === 1) {
       route(msg, from, filtered[0]);
       session.del(msg.chat.id, 'from');
@@ -112,9 +113,25 @@ function processToLocation(msg) {
       session.del(msg.chat.id, 'from');
       session.del(msg.chat.id, 'to');
     } else {
-      bot.sendMessage(msg.chat.id, 'Please use the selections below.');
+      if (!processToSearch(msg)) {
+        bot.sendMessage(msg.chat.id, 'Please use the selections below.');
+      }
     }
   }
+}
+
+function processToSearch(msg) {
+  const to = msg.text.toLowerCase();
+  const result = busStops.filter(obj => obj.name.toLowerCase().includes(to)).map(obj => obj.name);
+  console.log(result);
+  const opts = {
+    reply_markup: JSON.stringify({
+      keyboard: rowify(result, 3),
+      resize_keyboard: true,
+    }),
+  };
+  bot.sendMessage(msg.chat.id, 'Select which one is your destination', opts);
+  return true;
 }
 
 bot.on('message', (msg) => {
@@ -123,11 +140,17 @@ bot.on('message', (msg) => {
       return processFromLocation(msg);
     }
 
+    const command = msg.text.split(' ')[0];
+    const args = msg.text.substr(command.length + 1);
+
     if (session.get(msg.chat.id, 'from') !== undefined) {
       return processToLocation(msg);
     }
 
-    switch (msg.text) {
+
+
+
+    switch (command) {
       case '/start':
         bot.sendMessage(msg.chat.id, 'Welcome! Please send me your location so I can guide you!');
         break;
