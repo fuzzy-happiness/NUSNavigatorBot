@@ -71,7 +71,8 @@ function findTransit(from, to) {
 function route(msg, from, to) {
   const opts = {
     reply_markup: JSON.stringify({
-      remove_keyboard: true,
+      keyboard: [ [{text: 'Send Location', request_location: true}] ],
+      resize_keyboard: true,
     }),
   };
   const common = from.buses.filter(bus => to.buses.indexOf(bus) !== -1);
@@ -152,7 +153,13 @@ bot.on('message', (msg) => {
 
     switch (command) {
       case '/start':
-        bot.sendMessage(msg.chat.id, 'Welcome! Please send me your location so I can guide you!');
+        const opts = {
+          reply_markup: JSON.stringify({
+            keyboard: [ [{text: 'Send Location', request_location: true}] ],
+            resize_keyboard: true,
+          }),
+        };
+        bot.sendMessage(msg.chat.id, 'Welcome! Please send me your location so I can guide you!', opts);
         break;
       case '/about':
         bot.sendMessage(msg.chat.id, 'This bot is created by @indocomsoft and @sciffany during Hack & Roll 2018!');
