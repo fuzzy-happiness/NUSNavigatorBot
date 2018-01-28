@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Office of Admissions",
+    "alias": "OAM",
+    "longitude": 1.304597, 
+    "latitude": 103.772328
+  },
+
+  {
+    "name": "Alice Lee Centre for Nursing Studies",
+    "alias": "ALC",
+    "longitude": 1.295840, 
+    "latitude": 103.781697
+  },
+  
+  {
+    "name": "Office of Alumni Relations",
+    "alias": "OAR",
+    "longitude": 1.293867,  
+    "latitude": 103.773272
+  },
+  {
+    "name": "Bioinformatics Center",
+    "alias": "BIC",
+    "longitude": 1.296081, 
+    "latitude": 103.780945
+  },
+  {
+    "name": "Board of Trustees Secretariat",
+    "alias": "OAM",
+    "longitude": 1.297194, 
+    "latitude": 103.777759
+  },
+  {
+    "name": "Office of Campus Amenities",
+    "alias": "OAM",
+    "longitude": 1.295423,
+    "latitude": 103.770322
+  },
+  {
+    "name": "Centre for Future-Ready Graduates",
+    "alias": "OAM",
+    "longitude": 1.298219, 
+    "latitude": 103.774488
+  },
+  {
+    "name": "Computer Centre",
+    "alias": "OAM",
+    "longitude": 1.297916, 
+    "latitude": 103.772187
+  },
+  {
+    "name": "Central Procurement Office",
+    "alias": "OAM",
+    "longitude": 1.295696, 
+    "latitude": 103.778921
+  },
+  {
+    "name": "Office of Corporate Relations ",
+    "alias": "OAM",
+    "longitude": 1.295696, 
+    "latitude": 103.778921
+  },
+  {
+    "name": "Animal Holding Unit",
+    "alias": "OAM",
+    "longitude": 1.295892, 
+    "latitude": 103.781638
+  },
+  {
+    "name": "Antenatal Diagnostic Centre",
+    "alias": "OAM",
+    "longitude": 1.294736, 
+    "latitude": 103.782853
+  },
+
+]
