@@ -29,24 +29,50 @@ function findNearest(loc, list) {
 
 
 function findBuilding(msg){
-    const buildings = require('./buildings.json');
-    const bus_stops = require('./buildings.json');
+    const building = msg.text.toLowerCase().substring('/find'.length + 1);
 
+    const buildings = require('./buildings.json');
+    const bus_stops = require('./bus_stops.json');
+
+<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
     bot.on('message', (msg) => {
 
       return true;
     } catch (e) {
       console.log(e);
     }
+=======
+    const filtered = buildings.filter(obj => obj.name.toLowerCase().includes(building));
+>>>>>>> builidings again
 
-  });
+    const opts = {
+        reply_markup: JSON.stringify({
+          keyboard: rowify(filtered.map(obj => obj.name), 3),
+          resize_keyboard: true
+        })
+      }
+    bot.sendMessage(msg.chat.id, `These are the offices you want`, opts);
+    session.set(msg.chat.id, 'find', 1);
+    processFind(msg, building);
+}
 
 
+<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
 
   };
+=======
+function processFind(msg, building){
 
+  const bus_stops = require('./bus_stops.json');
+  if (session.get(msg.chat.id, 'find') === 1) {
+>>>>>>> builidings again
 
-  bot.sendMessage(msg.chat.id, `Which office are you going to?`, opts);
+    const nearest = findNearest(building,bus_stops);
+
+    bot.sendMessage(msg.chat.id, `Nearest bus stop is ${busStops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
+  
+
+  }
 
 
 }
@@ -113,6 +139,7 @@ function route(msg, from, to) {
 
 function processToLocation(msg) {
   const from = session.get(msg.chat.id, 'from');
+  const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'to') === 1) {
     const filtered = busStops.filter(obj => obj.group === msg.text);
     if (filtered.length === 0) {
@@ -120,8 +147,6 @@ function processToLocation(msg) {
       return processToLocation(msg);
     } else if (filtered.length === 1) {
       route(msg, from, filtered[0]);
-      session.del(msg.chat.id, 'from');
-      session.del(msg.chat.id, 'to');
     } else {
       const opts = {
         reply_markup: JSON.stringify({
@@ -136,8 +161,6 @@ function processToLocation(msg) {
     const filtered = busStops.filter(obj => obj.name === msg.text);
     if (filtered.length === 1) {
       route(msg, from, filtered[0]);
-      session.del(msg.chat.id, 'from');
-      session.del(msg.chat.id, 'to');
     } else {
       if (!processToSearch(msg)) {
         bot.sendMessage(msg.chat.id, 'Please use the selections below.');
@@ -175,9 +198,16 @@ bot.on('message', (msg) => {
 
 
     var find = "/find";
+<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
     if (msg.text.toString().toLowerCase().indexOf(find) === 0) {
         findBuilding(msg.text.slice(6));
     }
+=======
+    if (msg.text.toLowerCase().indexOf(find) === 0) {
+        return findBuilding(msg);
+    } 
+
+>>>>>>> builidings again
 
     switch (command) {
       case '/start':
