@@ -32,6 +32,7 @@ function findBuilding(msg){
     const building = msg.text.toLowerCase().substring('/find'.length + 1);
 
     const buildings = require('./buildings.json');
+<<<<<<< 2530733f699069d2bf16c7cff92461aa42ae1e78
     const bus_stops = require('./bus_stops.json');
 
 <<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
@@ -42,6 +43,9 @@ function findBuilding(msg){
       console.log(e);
     }
 =======
+=======
+
+>>>>>>> find
     const filtered = buildings.filter(obj => obj.name.toLowerCase().includes(building));
 >>>>>>> builidings again
 
@@ -53,24 +57,37 @@ function findBuilding(msg){
       }
     bot.sendMessage(msg.chat.id, `These are the offices you want`, opts);
     session.set(msg.chat.id, 'find', 1);
-    processFind(msg, building);
 }
 
 
+<<<<<<< 2530733f699069d2bf16c7cff92461aa42ae1e78
 <<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
 
   };
 =======
 function processFind(msg, building){
+=======
+function processFind(msg){
+  const building_name = msg.text;
+  const buildings = require('./buildings.json');
+
+  var building = "";
+  for (let i = 0; i < buildings.length; i += 1) {
+    if (buildings[i].name == building_name) {
+      building = buildings[i];
+    }
+  }
+>>>>>>> find
 
   const bus_stops = require('./bus_stops.json');
   if (session.get(msg.chat.id, 'find') === 1) {
 >>>>>>> builidings again
 
+
     const nearest = findNearest(building,bus_stops);
 
     bot.sendMessage(msg.chat.id, `Nearest bus stop is ${busStops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
-  
+
 
   }
 
@@ -196,18 +213,15 @@ bot.on('message', (msg) => {
       return processToLocation(msg);
     }
 
+    if (session.get(msg.chat.id, 'find') !== undefined) {
+      return processFind(msg);
+    }
 
     var find = "/find";
-<<<<<<< 510a67b22c83e5f694f83cd80bea7c787f498887
-    if (msg.text.toString().toLowerCase().indexOf(find) === 0) {
-        findBuilding(msg.text.slice(6));
-    }
-=======
     if (msg.text.toLowerCase().indexOf(find) === 0) {
         return findBuilding(msg);
-    } 
+    }
 
->>>>>>> builidings again
 
     switch (command) {
       case '/start':
