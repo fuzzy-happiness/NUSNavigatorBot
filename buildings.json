@@ -27,49 +27,49 @@
   },
   {
     "name": "Board of Trustees Secretariat",
-    "alias": "OAM",
+    "alias": "BTS",
     "longitude": 1.297194, 
     "latitude": 103.777759
   },
   {
     "name": "Office of Campus Amenities",
-    "alias": "OAM",
+    "alias": "OCA",
     "longitude": 1.295423,
     "latitude": 103.770322
   },
   {
     "name": "Centre for Future-Ready Graduates",
-    "alias": "OAM",
+    "alias": "CFG",
     "longitude": 1.298219, 
     "latitude": 103.774488
   },
   {
     "name": "Computer Centre",
-    "alias": "OAM",
+    "alias": "CMC",
     "longitude": 1.297916, 
     "latitude": 103.772187
   },
   {
     "name": "Central Procurement Office",
-    "alias": "OAM",
+    "alias": "CPO",
     "longitude": 1.295696, 
     "latitude": 103.778921
   },
   {
     "name": "Office of Corporate Relations ",
-    "alias": "OAM",
+    "alias": "OCR",
     "longitude": 1.295696, 
     "latitude": 103.778921
   },
   {
     "name": "Animal Holding Unit",
-    "alias": "OAM",
+    "alias": "AHU",
     "longitude": 1.295892, 
     "latitude": 103.781638
   },
   {
     "name": "Antenatal Diagnostic Centre",
-    "alias": "OAM",
+    "alias": "ADC",
     "longitude": 1.294736, 
     "latitude": 103.782853
   },

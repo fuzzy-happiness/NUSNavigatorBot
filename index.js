@@ -26,6 +26,31 @@ function findNearest(loc, list) {
   return min;
 }
 
+
+
+function findBuilding(msg){
+    const buildings = require('./buildings.json');
+    const bus_stops = require('./buildings.json');
+
+    bot.on('message', (msg) => {
+
+      return true;
+    } catch (e) {
+      console.log(e);
+    }
+
+  });
+
+
+
+  };
+
+
+  bot.sendMessage(msg.chat.id, `Which office are you going to?`, opts);
+
+
+}
+
 function processFromLocation(msg) {
   const nearest = findNearest(msg.location, busStops);
   bot.sendMessage(msg.chat.id, `Nearest bus stop is ${busStops[nearest.index].name}, approximately ${Math.round(nearest.distance * ONE_DEGREE)} metre(s)`);
@@ -149,7 +174,10 @@ bot.on('message', (msg) => {
     }
 
 
-
+    var find = "/find";
+    if (msg.text.toString().toLowerCase().indexOf(find) === 0) {
+        findBuilding(msg.text.slice(6));
+    }
 
     switch (command) {
       case '/start':
